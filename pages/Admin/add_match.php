@@ -15,6 +15,56 @@ if ($_SESSION['userName'] == "") {
 
 <!DOCTYPE html>
 <html>
+<style>
+#match_added_succesfully {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #005a4d; /*green background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#match_added_succesfully.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+</style>
+
+
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,6 +93,7 @@ if ($_SESSION['userName'] == "") {
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- Ionicons -->
@@ -67,6 +118,14 @@ if ($_SESSION['userName'] == "") {
 <!-- bootstrap datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 </head>
+<?php
+  if (isset($_POST["addMatch"])) {
+    # code...
+    include "add_match_backend.php";
+
+   add_Match();
+  }
+?>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -122,118 +181,11 @@ if ($_SESSION['userName'] == "") {
             <li ><a href="Register club owner" ><i class="fa fa-circle-o "></i> Register ClubOwner</a></li>
           </ul>
         </li>
-        <!-- <li class="treeview">
-          <a href="#">
-            <i class="fa fa-tags text-green"></i> <span>Service</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class = "active"><a href="add_service.php"><i class="fa fa-circle-o "></i> Add Player for vote </a></li>
-            <li><a href="Addmembertoservice.php"><i class="fa fa-circle-o"></i> Add Member to Service</a></li>
-
-          </ul>
-        </li> -->
-<!--
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-book text-green"></i> <span>Class</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class = "active"><a href="create_class.php"><i class="fa fa-circle-o"></i> Add Class</a></li>
-            <li><a href="add_membertoClass.php"><i class="fa fa-circle-o"></i> Add Member to Class</a></li>
-
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit text-green"></i> <span>Update</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="updateClass.php"><i class="fa fa-circle-o "></i> Update Class</a></li>
-            <li><a href="updateService.php"><i class="fa fa-circle-o"></i> Update Service</a></li>
-            <li><a href="updateServiceStatus.php"><i class="fa fa-circle-o"></i> Update Service Status</a></li>
-            <li><a href="updateMembership.php"><i class="fa fa-circle-o"></i> Update Membership Status</a></li>
-            <li><a href="updateMaritalStatus.php"><i class="fa fa-circle-o"></i> Update Marital Status</a></li>
-
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pencil text-blue"></i> <span>View Report</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o text-blue"></i> View members</a></li>
-             <li>
-              <a href="#"><i class="fa fa-circle-o text-blue"></i> View Services
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="#"><i class="fa fa-circle-o text-blue"></i> Sunday School Services
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> All Teachers</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> Emnet Matsgna </a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> Dekemezmur Class</a></li>
-                  </ul>
-                </li>
-
-                <li>
-                  <a href="#"><i class="fa fa-circle-o text-blue"></i> Worship Service
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> A Choir</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> B Choir</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> C Choir</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> D Choir</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> Nisir</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> Kebron</a></li>
-                  </ul>
-                </li>
-                <li><a href="#"><i class="fa fa-circle-o text-blue"></i> Diakonat</a></li>
-                <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> Youth Service
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Small Team</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Bible Study</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o text-blue"></i> View Married Members</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-blue"></i> View Students < --><!-- /a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-blue"></i> View  </a></li>
-          </ul>
-        </li> -->
+          
         <li class = "active"><a href="add_match"><i class="glyphicon glyphicon-plus text-blue"></i> <span>Add Match</span></a></li>
-         <li><a href="add_playerToVote"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Add player for vote</span></a></li>
-         <li><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
-         <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
+        <li><a href="add_playerToVote"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Add player for vote</span></a></li>
+        <li><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
+        <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -244,15 +196,139 @@ if ($_SESSION['userName'] == "") {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Register Memeber
+       Add Match 
         <small>sportsoversight</small>
       </h1>
     </section><br>
   <!-- Main content -->
     <section class="content">
+      <form method = 'post' action = "">
+        <div class="row content box" style = "width:80%;">
+          <div class="col-md-5" >
+            <h2>Match Detail</h2>
+            <hr>
+            <div class="form-horizontal">
+                <div class="box-body">
 
+                  <div class="form-group">
+                    <label for="nationality" class="col-md-4 control-label">Club <span class="required" style = "color :red"> *</span></label>
+
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                           <select class="selectClass form-control " name = "club1">
+                             <?php
+                              $conn = mysqli_connect('localhost','root','','sportsoversight');
+                              $sql1 = "SELECT * FROM `club`";
+                              $result1 = mysqli_query($conn, $sql1);
+                              while ($row1 = mysqli_fetch_array($result1)){
+                                ?>
+                                <option value = "<?php echo $row1['club_ID'];?>"><?php echo $row1['club_Name']; $row1['club_ID']?></option>
+                                <?php
+                              }
+                            ?>
+                        </select>
+                          
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="startdate" class="col-sm-4 control-label">Match Day <span class="required" style = "color :red"> *</span></label>
+                    <div class="col-sm-7">
+                      <input type="date"  class="form-control" id="" data-validate-length-range="1" data-validate-words="1" name="matchDay" required="required" placeholder="Date Of Birth">
+                    </div>
+                  </div><br>
+                  <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                      <label  class="col-sm-4 control-label">Match Time:</label>
+
+                      <div class="input-group col-sm-7">
+                        <input type="time" class="form-control " name = "matchTime">
+
+                        <div class="input-group-addon">
+                          <i class="fa fa-clock-o"></i>
+                        </div>
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-1"  ><br><br><br><br> <br><b style = "font-size:30px;">Vs</b></div>
+          <div class="col-md-6"  ><br><br><br><br><br>
+            
+            <div class="form-horizontal">
+                <div class="box-body">
+
+                  <div class="form-group">
+                    <label for="nationality" class="col-md-3 control-label">Club <span class="required" style = "color :red"> *</span></label>
+
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                          <select class="selectClass form-control" name = "club2">
+                             <?php
+                              $conn = mysqli_connect('localhost','root','','sportsoversight');
+                              $sql1 = "SELECT * FROM `club`";
+                              $result1 = mysqli_query($conn, $sql1);
+                              while ($row1 = mysqli_fetch_array($result1)){
+                                ?>
+                                <option value = "<?php echo $row1['club_ID'];?>"><?php echo $row1['club_Name'];?></option>
+                                <?php
+                              }
+                            ?>
+                        </select>
+                          
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="username" class="col-sm-3 control-label">Place <span class="required" style = "color :red"> *</span></label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputid" data-validate-length-range="1" data-validate-words="1" name="Place" required="required" placeholder="Place">
+                    </div>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="nationality" class="col-md-4 control-label">Commentator <span class="required" style = "color :red"> *</span></label>
+
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                          <select class="form-control select2" id="inputid" data-validate-length-range="1" data-validate-words="1" name="comentator" required="required" placeholder="Comentator">
+                            <?php
+                              $conn = mysqli_connect('localhost','root','','sportsoversight');
+                              $sql2 = "SELECT * FROM `commentator`";
+                              $result2 = mysqli_query($conn, $sql2);
+                              while ($row2 = mysqli_fetch_array($result2)){
+                                ?>
+                                <option value = "<?php echo $row2['account_ID'];?>"><?php echo $row2['first_Name'].' '. $row2['last_Name'];?></option>
+                                <?php
+                              }
+                            ?>
+                          </select>
+                        </div>
+                    </div>
+                  </div>
+                  <br><br>
+                  <div class = "col-md-4" style ="margin-left:20%;">
+                      <input type = "submit" value = "Add Match" class="btn bg-olive btn-flat" style = "width:200px; height:40px; font-size:18px;" id ="sub" name = "addMatch">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </form>
     </section>
+ 
 
+<script type="text/javascript" language="javascript">
+$(".selectClass").change(function () {
+    $("select option").prop("disabled", false);
+    $(".selectClass").not($(this)).find("option[value='" + $(this).val() + "']").prop("disabled", true);
+
+});</script>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -327,6 +403,7 @@ if ($_SESSION['userName'] == "") {
 <!-- bootstrap color picker -->
 <script src="../../plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 <!-- bootstrap time picker -->
+
 <script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll 1.3.0 -->
 <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
@@ -349,7 +426,7 @@ if ($_SESSION['userName'] == "") {
   $(function () {
     //Initialize Select2 Elements
     $(".select2").select2();
-
+    
     //Datemask dd/mm/yyyy
     $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
     //Datemask2 mm/dd/yyyy

@@ -285,6 +285,7 @@ However, delay the fade out process for 2.5 seconds */
             <li><a href="#"><i class="fa fa-circle-o text-blue"></i> View  </a></li>
           </ul>
         </li> -->
+        <li class = "active"><a href="add_match"><i class="glyphicon glyphicon-plus text-blue"></i> <span>Add Match</span></a></li>
          <li><a href="add_playerToVote"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Add player for vote</span></a></li>
          <li><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
          <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>

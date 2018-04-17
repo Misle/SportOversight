@@ -98,7 +98,7 @@
          <li><a href="votePlayer.php"><i class="glyphicon glyphicon-saved text-blue"></i> <span>Vote Player</span></a></li>
          <li><a href="liveStream.php"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>View Live Stream</span></a></li>
          <li><a href="viewProfile.php"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
-         <li><a href="../../login.php"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
+         <li><a href="../../index.php"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

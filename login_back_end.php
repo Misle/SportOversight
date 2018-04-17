@@ -57,7 +57,7 @@ if ($result[0]>0) {
   if ($role === "commentator") {
     $_SESSION['userName'] = $uname;
 
-      header('Location: pages/player/index');
+      header('Location: pages/commentator/index');
 
   }
   if ($role === "admin") {

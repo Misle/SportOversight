@@ -3,7 +3,7 @@
 session_start();
 if ($_SESSION['userName'] == "") {
 
-  header('Location: ../../index.php');
+  header('Location: ../../index');
 
 }
 
@@ -11,94 +11,8 @@ if ($_SESSION['userName'] == "") {
 
 
 ?>
-
-
-                  <?php
-  if (isset($_POST["submitttt"])) {
-    # code...
-    include "updateProfile_back_end.php";
-
-  updateProfile();
-  }
-?>
-
-
 <!DOCTYPE html>
 <html>
-
-<style>
-#snackbar {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #005a4d; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
-}
-
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-    visibility: visible; /* Show the snackbar */
-
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-However, delay the fade out process for 2.5 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-#snackbar2 {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: red; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
-}
-
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar2.show {
-    visibility: visible; /* Show the snackbar */
-
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-However, delay the fade out process for 2.5 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-/* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-}
-</style>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -173,10 +87,9 @@ However, delay the fade out process for 2.5 seconds */
         <span class="sr-only">Toggle navigation</span>
       </a>
 
-
+     
     </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar" id = "menu">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -186,196 +99,249 @@ However, delay the fade out process for 2.5 seconds */
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-           <p><?php echo "Hello"." ".$_SESSION['userName']; ?></p>
-          <p><i>Admin</i> </p>
+          <p><?php echo "Hello"." ".$_SESSION['userName']; ?></p>
+          <p><i>Commentater</i> </p>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header"><h3>Menu</h3></li>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-pencil text-green"></i> <span>Register Members</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu active">
-
-            <li ><a href="Register coach" ><i class="fa fa-circle-o "></i> Register Coach</a></li>
-            <li ><a href="Register player" ><i class="fa fa-circle-o "></i>  Register Player</a></li>
-            <li><a href="Register scouter"><i class="fa fa-circle-o"></i>  Register Scouter</a></li>
-            <li><a href="Register commentator"><i class="fa fa-circle-o"></i>  Register Commentator</a></li>
-            <li ><a href="Register club owner" ><i class="fa fa-circle-o active"></i> Register ClubOwner</a></li>
-          </ul>
-        </li>
-  <li class = "active"><a href="add_match"><i class="glyphicon glyphicon-plus text-blue"></i> <span>Add Match</span></a></li>
-         <li><a href="add_playerToVote"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Add player for vote</span></a></li>
-        <li class = "active"><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
-        <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
+         <li class = "active"><a href="home.php"><i class="glyphicon glyphicon-home text-blue"></i> <span>Home </span></a></li>
+         <li ><a href="liveStream.php"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
+         <li ><a href="index.php"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
+         <li><a href="../../login.html"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-
-
-  <?php
-
-$conn = mysqli_connect('localhost','root','','sportsoversight');
-$profileSQl ="SELECT * FROM admin WHERE (account_ID='".$_SESSION['accountID']."')";
-$qury =  mysqli_query($conn,$profileSQl);
-$result = mysqli_fetch_array($qury);
-$admin_ID = $result[0];
-
-$sql_username_password = "SELECT * FROM account WHERE (account_ID='".$_SESSION['accountID']."')";
-$sql_run_query = mysqli_query($conn,$sql_username_password);
-$result2 = mysqli_fetch_array($sql_run_query);
-
-
-
-$_SESSION['admin_ID'] = $admin_ID;
-
-  ?>
-
-
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User Profile
-        <small>Admin </small>
+        Home Page
+        <small>Commentator </small>
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
 
-      <div class="row box box-default content">
-        <div class="col-md-3">
+     <!-- Default box -->
+      <div class="row">
+        <div class = "col-md-10 col-md-offset-1">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Games</h3>
 
-          <!-- Profile Image -->
-          <div class=" ">
-            <div class="box-body box-profile"><br><br><br>
-              <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
-              <br>
-              <h3 class="profile-username text-center"><?php echo $result[1]." ". $result[2] ?></h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
 
-              <p class="text-muted text-center">Sport's Oversight Admin</p>
-              <br><br>
+              </div>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-9">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#activity" data-toggle="tab">Full Description</a></li>
-              <li><a href="#settings" data-toggle="tab">Settings</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="active tab-pane" id="activity">
-                <div class="row"><br><br>
-                  <div class="col-md-6">
-                    <ul class="list-group list-group-unbordered">
-                      <li class="list-group-item">
-                        <b>Full Name</b> <a class="pull-right"><?php echo $result[1]." ". $result[2] ?></a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Nationality</b> <a class="pull-right"><?php echo $result[3] ?></a>
-                      </li>
+            <div class="box-body">
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="row">
 
-                      <li class="list-group-item">
-                        <b>City</b> <a class="pull-right">Addis Ababa</a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Woreda</b> <a class="pull-right">03</a>
-                      </li>
+                  <div class="col-md-12">
+                    <div class="box-body">
+                      <div class="row">
+                      <?php
+                            $conn = mysqli_connect('localhost','root','','sportsoversight');
+                            $com_Name = $_SESSION['userName'];
+                            $sql = "SELECT * FROM `match`";
+                            $result = mysqli_query($conn, $sql);
+                            $i = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                              $i++;
+                            //   # code...
+                              $account_ID = $row['comentator'];
+                              $sql1 = "SELECT * FROM `account` WHERE `account_ID` = '$account_ID'";
+                              $result1 = mysqli_query($conn, $sql1);
+                              $row1 = mysqli_fetch_array($result1);
+                              $account_Uname = $row1['userName'];
+                                
+                              if ($account_Uname == $com_Name ) {
+                                $club_1 = $row['club1ID'];
+                                $club_2 = $row['club2ID'];
+                                $club_1_name = "SELECT `club_Name` FROM `club` WHERE `club_ID` = '$club_1'";
+                                $club_2_name = "SELECT `club_Name` FROM `club` WHERE `club_ID` = '$club_2'";
+                                $club_1_name_run = mysqli_query($conn, $club_1_name);
+                                $club_2_name_run = mysqli_query($conn, $club_2_name);
+                                $row2 = mysqli_fetch_array($club_1_name_run);
+                                $row3 = mysqli_fetch_array($club_2_name_run);
+                                $cName_1 = $row2['club_Name'];
+                                $cName_2 = $row3['club_Name'];
+                                $game_name = $cName_1.' Vs '.$cName_2;?>
+                                <div class="col-md-3">
+                              <form method= "get" action = "matchStream.php">
+                                <blockquote>
+                                  <p>
+                                  <input type = hidden name ='matchID' value='<?php echo $row['match_id'];?>'>
 
+                                    <?php
+                                          $date = strtotime($row['matchDay']);
+                                          $time = strtotime($row['matchTime']);
+                                        echo $game_name."<br><small><b>Place:-</b>".$row['place']."</small><small><b>Time:- 
+                                        </b>
+                                        
+                                  </small>";?>
+                                  <div id="<?php echo 'countbox'.$i?>" ></div>
+                                  <script type='text/javascript' language='JavaScript'>
 
-                    </ul>
+                                  Times = <?php echo $time?>;
+                                  i = <?php echo $i ?>;
+                             
+                              dateFuture = new Date(<?php echo date('Y', $date)?>,<?php echo (date('m', $date))-1?>,<?php echo date('d', $date)?>,<?php echo date('h', $time)?>,<?php echo date('i', $time)?>,<?php echo date('s', $time)?>);
+                              function GetCount(){
+                                          
+                                      dateNow = new Date();//grab current date
+                                      amount = dateFuture.getTime() - dateNow.getTime();//calc milliseconds between dates
+                                      delete dateNow;
+                                      // time is already past
+                                      console.log(dateFuture)
+                                      if(amount < 0){
+                                              document.getElementById('countbox').innerHTML='Now!';
+                                      }
+                                      // date is still good
+                                      else{
+                                              days=0;hours=0;mins=0;secs=0;out="";
+
+                                            amount = Math.floor(amount/1000);//kill the "milliseconds" so just secs
+
+                                            days=Math.floor(amount/86400);//days
+                                            amount=amount%86400;
+
+                                            hours=Math.floor(amount/3600);//hours
+                                            amount=amount%3600;
+
+                                            mins=Math.floor(amount/60);//minutes
+                                            amount=amount%60;
+
+                                            secs=Math.floor(amount);//seconds
+
+                                            if(days != 0){out += days +" day"+((days!=1)?"s":"")+", ";}
+                                            if(days != 0 || hours != 0){out += hours +" hour"+((hours!=1)?"s":"")+", ";}
+                                            if(days != 0 || hours != 0 || mins != 0){out += mins +" minute"+((mins!=1)?"s":"")+", ";}
+                                            out += secs +" seconds";
+                                            document.getElementById('countbox'+i).innerHTML=out;
+                                            console.log()
+                                      }
+                              }
+                             
+                             GetCount();
+
+                              </script>
+                                    <input type = "submit" value = "Start Live Stream" name = "start" class = "btn bg-olive btn-flat margin">
+                                  </p>
+                                </blockquote>
+                              </form>
+                              </div><?php 
+
+                              $date = strtotime($row['matchDay']);
+                              $time = strtotime($row['matchTime']);
+                                echo date('Y', $date).'-';
+                                echo date('m', $date).'-';
+                                echo date('d', $date).'-';
+                                echo date('h', $time).'-';
+                                echo date('i', $time).'-';
+                                echo date('s', $time).'-';?>
+                              
+                                 
+                                <?php
+                              }
+                            }
+                            
+                            ?>
+                            <script type="text/javascript">
+                            
+                              setTimeout("GetCount()", 1000);
+                            </script>
+                            <?php 
+                              if (isset($_POST['start'])) {
+                                # code...
+                                include 'liveStream_txt.php';
+                                
+
+                              }
+                            ?>
+                        </div>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <ul class="list-group list-group-unbordered">
-
-                      <li class="list-group-item">
-                        <b>Gender</b> <a class="pull-right"><?php echo $result[4]?></a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Email</b> <a class="pull-right"><?php echo $result[5] ?></a>
-                      </li>
-
-                    </ul>
-                  </div>
-
                 </div>
               </div>
 
-              <div class="tab-pane" id="settings">
-                <form method="post" class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">User Name</label>
-
-                    <div class="col-sm-7">
-                      <input type="text" value = '<?php echo $result2[1]; ?> 'class="form-control" id="inputName" name="username" placeholder="username">
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-5"><img class="img-responsive" src="../../dist/img/photo2.png" alt="Photo"></div>
+                  <div class="col-md-7">
+                    <div class="box-body">
+                      <blockquote>
+                        <p>Buna Coach has announced the transfer of Abebe alemu to the Club</p>
+                        <small>Coach Abebe <cite title="Source Title">Reporter </cite></small>
+                      </blockquote>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                    <div class="col-sm-7">
-                      <input type="email" value='<?php echo $result[5] ?>' class="form-control" id="inputEmail" name ="email" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">New Password</label>
-
-                    <div class="col-sm-7">
-                      <input type="password" class="form-control" id="inputName" name="password" placeholder="Password" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Confirm Password</label>
-
-                    <div class="col-sm-7">
-                      <input type="password" class="form-control" id="inputName" name="confirm" placeholder="Confirm Password" required>
-                    </div>
-
-                    <?php
-
-                    ?>
-                  </div>
-
-
-
-
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button name = "submitttt" type="submit" class="btn btn-danger">Submit</button>
-                    </div>
-                  </div>
-                </form>
+                </div>
               </div>
-              <!-- /.tab-pane -->
+              <!-- /.box-body -->
             </div>
-            <!-- /.tab-content -->
-          </div>
-          <!-- /.nav-tabs-custom -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+            <!-- /.box-body -->
 
+            <!-- /.box-footer-->
+          </div>
+           <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Latest Match News</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="col-xs-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td><center> <h4>Buna Won the Game Aginst Dedebit 3-0</h4> </center></td>
+                      </tr>
+                      <tr>
+                        <td><dd>The first Goal was scored by <i> <big><b class = "label label-success">Abebe Alemu</b></big> </i></dd></td>
+                      </tr>
+                      <tr>
+                        <td><dd>The Second Goal was scored by <i> <big><b class = "label label-success">Abebe Alemu</b></big> </i></dd></td>
+                      </tr>
+                      <tr>
+                        <td><dd>The Last Goal was scored by <i> <big><b class = "label label-success">Abebe Alemu</b></big> </i></dd></td>
+                      </tr>
+                      <tr>
+                        <td><dd><big><b class = "label label-danger">Abebe Alemu</b></big> And <big><b class = "label label-danger">Abebe Alemu</b></big> was injured during the game.</dd></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+        <!-- /.box -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-
-    <strong>Copyright &copy; 2017-2018 sportsoversight</a>.</strong> All rights
+    
+    <strong>Copyright &copy; 2017-2018 EECMY</a>.</strong> All rights
     reserved.
   </footer>
   <script>
@@ -618,7 +584,7 @@ $_SESSION['admin_ID'] = $admin_ID;
             });
         });
   </script>
-
+  
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>

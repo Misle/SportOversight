@@ -3,6 +3,7 @@
 
 function registerCoach()
 {
+
   $conn = mysqli_connect('localhost','root','','sportsoversight');
   $first_name = mysqli_real_escape_string($conn,  $_POST['firstname']);
   $last_name = mysqli_real_escape_string($conn,  $_POST['lastname']);
@@ -23,12 +24,12 @@ function registerCoach()
   alert($rand);
   </script>";
 
-$intoAccountTale = "INSERT INTO account(userName, password, role) VALUES ('".$user_name."','".$pass_word."', '".$role."')";
+$intoAccountTale = "INSERT INTO account(userName, password, role, email) VALUES ('".$user_name."','".$pass_word."', '".$role."','".$email."')";
 $query_insert_to_account_table =  mysqli_query($conn,$intoAccountTale);
 
  $last_account_id_for_Coach = mysqli_insert_id($conn);
 
-  $intoCoachTable = "INSERT INTO coach VALUES (NULL, NULL, NULL, NULL, '".$first_name."','".$last_name."', '".$dob."','".$city."','".$email."','".$nationality."','".$coach_level."','".$last_account_id_for_Coach."')";
+  $intoCoachTable = "INSERT INTO coach VALUES (NULL, NULL, NULL, '".$first_name."','".$last_name."', '".$dob."','".$city."','".$email."','".$nationality."','".$coach_level."','".$last_account_id_for_Coach."')";
   $query_insert_to_coach_table =  mysqli_query($conn, $intoCoachTable);
 
 

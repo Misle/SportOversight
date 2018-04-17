@@ -19,7 +19,7 @@ echo "<script>
 alert($rand);
 </script>";
 
-$intoAccountTale = "INSERT INTO account(userName, password, role) VALUES ('".$user_name."','".$pass_word."', '".$role."')";
+$intoAccountTale = "INSERT INTO account(userName, password, role, email) VALUES ('".$user_name."','".$pass_word."', '".$role."', '".$email."')";
 $query_insert_to_account_table =  mysqli_query($conn,$intoAccountTale);
 
  $last_account_id_for_Comm = mysqli_insert_id($conn);

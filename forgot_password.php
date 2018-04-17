@@ -1,13 +1,13 @@
 <?php
-    if (isset($_POST["Login"])) {
-      # code...
-      include "login_back_end.php";
-          Login();
+if (isset($_POST["resetpassword"])) {
+
+      include "sendmail.php";
+          resetPassword();
+
     }
 
-   
 
-  ?>
+?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -36,64 +36,6 @@ However, delay the fade out process for 2.5 seconds */
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-
-#emailsent {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #005a4d; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
-}
-
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#emailsent.show {
-    visibility: visible; /* Show the snackbar */
-
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-However, delay the fade out process for 2.5 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;}
@@ -120,7 +62,7 @@ However, delay the fade out process for 2.5 seconds */
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sports OverSights  | Log in</title>
+  <title>Sports OverSights  | Forget PassWord</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -158,7 +100,7 @@ However, delay the fade out process for 2.5 seconds */
 	<link rel="stylesheet" type="text/css" href="engine0/style.css" />
 	<script type="text/javascript" src="engine0/jquery.js"></script>
 	<!-- End WOWSlider.com HEAD section --></head>
-  
+
 <body class="hold-transition login-page" style = "overflow:hidden;">
 
 <section style = "position:absolute; z-index:-999;top :0px; bottom:0px;">
@@ -183,57 +125,33 @@ However, delay the fade out process for 2.5 seconds */
   <!-- /.login-logo -->
   <div class="login-box-body" >
     <div class="login-logo">
-      <b>Sports</b> Oversights
+
+      <b>Update Your Password </b>
     </div>
     <div id = "loginForm">
       <form method="post">
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="UserName" name="username" >
+          <input type="password" class="form-control" placeholder="NewPassword" name="newpassword" >
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="password">
+          <input type="password" class="form-control" placeholder="Confirm Password" name="confirmpassword">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div><br>
         <div class="row container">
 
           <div class="col-xs-3" style = "margin-left: auto; margin-right: auto;">
-            <button type="submit" class="btn btn-block btn-flat" name="Login" style = "background-color:#005a4d; color:white;">Log In</button>
+            <button type="submit" class="btn btn-block btn-flat" name="resetpassword" style = "background-color:#005a4d; color:white;">Reset Password</button>
           </div>
           <!-- /.col -->
         </div>
       </form> <br>
-      <a href="#" id = "forgotPassword">I forgot my password</a><br>
+
     </div>
 
-    <div id = "forgotPass">
-      <form  method="post">
-        <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="email" required>
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        <div class="row col-md-10 col-md-offset-1">
-        <div class="col-md-3"  style = "padding-right: 0px;"><a href="#" class="btn btn-primary btn btn-block btn-flat " id = "back" ><span class = "glyphicon glyphicon-arrow-left"></span></a></div>
-        <div class="col-md-9" style = "padding-left: 0px;"><button type="submit" class="btn btn-block btn-flat" name="sendmaill" style = "background-color:#005a4d; color:white;">Send</button></div>
-      </div>
-     
-      </form> <br>
-         </div>
-  </div>
 
-      <br>
-     <br>
-  
   <!-- /.login-box-body -->
 </div>
-<?php 
- if (isset($_POST["email"])) {
-      # code...
-      include "sendmail.php";
-          sendMail();
-    }
-
-?>
 <script type="text/javascript">
   $(document).ready(function(){
       $("#forgotPass").hide("fast");

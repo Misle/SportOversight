@@ -23,7 +23,7 @@ if ($_SESSION['userName'] == "") {
     visibility: hidden; /* Hidden by default. Visible on click */
     min-width: 250px; /* Set a default minimum width */
     margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #005a4d; /* Black background color */
+    background-color: #005a4d; /* green background color */
     color: #fff; /* White text color */
     text-align: center; /* Centered text */
     border-radius: 2px; /* Rounded borders */
@@ -290,6 +290,7 @@ However, delay the fade out process for 2.5 seconds */
             <li><a href="#"><i class="fa fa-circle-o text-blue"></i> View  </a></li>
           </ul>
         </li> -->
+        <li class = "active"><a href="add_match"><i class="glyphicon glyphicon-plus text-blue"></i> <span>Add Match</span></a></li>
          <li><a href="add_playerToVote"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Add player for vote</span></a></li>
          <li><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
          <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>

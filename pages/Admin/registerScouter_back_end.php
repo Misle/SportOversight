@@ -22,11 +22,11 @@ echo "<script>
 alert($rand);
 </script>";
 
-$into_Account_table = "INSERT INTO account(userName, password, role) VALUES ('".$user_name."','".$pass_word."', '".$role."')";
+$into_Account_table = "INSERT INTO account(userName, password, role, email) VALUES ('".$user_name."','".$pass_word."', '".$role."', '".$email."')";
 $query_insert_to_account_table =  mysqli_query($conn,$into_Account_table);
 $last_account_id_for_Scouter = mysqli_insert_id($conn);
 
-$intoScouterTable = "INSERT INTO scouter VALUES (NULL, NULL, NULL,NULL,'".$first_name."','".$last_name."', '".$dob."','".$city."','".$email."','".$nationality."','".$scouter_level."','".$last_account_id_for_Scouter."')";
+$intoScouterTable = "INSERT INTO scouter VALUES (NULL, NULL,NULL,'".$first_name."','".$last_name."', '".$dob."','".$city."','".$email."','".$nationality."','".$scouter_level."','".$last_account_id_for_Scouter."')";
 $query_insert_to_scouter_table =  mysqli_query($conn,$intoScouterTable);
 
 if ($query_insert_to_scouter_table) {

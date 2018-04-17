@@ -22,7 +22,7 @@ echo "<script>
 alert($rand);
 </script>";
 
-$intoAccountTable = "INSERT INTO account(userName, password, role) VALUES ('".$user_name."','".$pass_word."', '".$role."')";
+$intoAccountTable = "INSERT INTO account(userName, password, role, email) VALUES ('".$user_name."','".$pass_word."', '".$role."', '".$email."')";
 $query_insert_to_account_table =  mysqli_query($conn,$intoAccountTable);
 
 $last_account_id_for_Fan = mysqli_insert_id($conn);

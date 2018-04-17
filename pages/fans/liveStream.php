@@ -111,195 +111,137 @@
     <section class="content-header">
       <h1>
         <span class="glyphicon glyphicon-ok-sign text-green " aria-hidden="true"></span> Live Streaming
-        <small> <b>Buna</b> Vs <b> Dedebit</b></small>
       </h1>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+     <section class="content">
+
+     <!-- Default box -->
       <div class="row">
-        <div class="col-md-7">
-          <!-- DIRECT CHAT -->
-          <div class="box box-success direct-chat direct-chat-success">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">Direct Match</h3>
+        <div class = "col-md-10 col-md-offset-1">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Games</h3>
 
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
 
-                  </div>
-                  <!-- /.box-header -->
-                  <div class="box-body">
-                    <!-- Conversations are loaded here -->
-                    <div class="direct-chat-messages" style = "height:400px;">
-                      <!-- Message. Default to the left -->
-                      <div class="direct-chat-msg">
-                        <div class="direct-chat-info clearfix">
-                          <span class="direct-chat-name pull-left text-blue"><i><h4>04 Min</h4></i></span>
-
-                        </div>
-                        <!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="../../dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                         Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-
-                      <!-- Message. Default to the left -->
-                      <div class="direct-chat-msg">
-                        <div class="direct-chat-info clearfix">
-                          <span class="direct-chat-name pull-left text-blue"><i><h4>03 Min</h4></i></span>
-
-                        </div>
-                        <!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="../../dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-
-                      <!-- Message. Default to the left -->
-                      <div class="direct-chat-msg">
-                        <div class="direct-chat-info clearfix">
-                          <span class="direct-chat-name pull-left text-blue"><i><h4>01 Min</h4></i></span>
-
-                        </div>
-                        <!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="../../dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-                    </div>
-                    <!--/.direct-chat-messages-->
-                  </div>
-          </div>
-          <!--/.direct-chat -->
-        </div>
-
-        <div class="col-md-5">
-          <div class=" box box-body">
-            <h4>Club Position Table </h4>
-              <table id="example3" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Position</th>
-                    <th>Club Name</th>
-                    <th>Points</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>GK</td>
-                      <td>74.56</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>MD</td>
-                      <td>76</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>LMD</td>
-                      <td>78.23</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>CMD</td>
-                      <td>86.9</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>RMD</td>
-                      <td>82.1</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>GK</td>
-                      <td>74.56</td>
-                    </tr>
-                    <tr>
-                      <td>7</td>
-                      <td>MD</td>
-                      <td>76</td>
-                    </tr>
-                    <tr>
-                      <td>8</td>
-                      <td>LMD</td>
-                      <td>78.23</td>
-                    </tr>
-                    <tr>
-                      <td>9</td>
-                      <td>CMD</td>
-                      <td>86.9</td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>RMD</td>
-                      <td>82.1</td>
-                    </tr>
-                    <tr>
-                      <td>11</td>
-                      <td>GK</td>
-                      <td>74.56</td>
-                    </tr>
-                    <tr>
-                      <td>12</td>
-                      <td>MD</td>
-                      <td>76</td>
-                    </tr>
-                    <tr>
-                      <td>13</td>
-                      <td>LMD</td>
-                      <td>78.23</td>
-                    </tr>
-                    <tr>
-                      <td>14</td>
-                      <td>CMD</td>
-                      <td>86.9</td>
-                    </tr>
-                    <tr>
-                      <td>15</td>
-                      <td>RMD</td>
-                      <td>82.1</td>
-                    </tr>
-                    <tr>
-                      <td>16</td>
-                      <td>GK</td>
-                      <td>74.56</td>
-                    </tr>
-                    <tr>
-                      <td>17</td>
-                      <td>MD</td>
-                      <td>76</td>
-                    </tr>
-                    <tr>
-                      <td>18</td>
-                      <td>LMD</td>
-                      <td>78.23</td>
-                    </tr>
-                    <tr>
-                      <td>19</td>
-                      <td>CMD</td>
-                      <td>86.9</td>
-                    </tr>
-                    <tr>
-                      <td>20</td>
-                      <td>RMD</td>
-                      <td>82.1</td>
-                    </tr>
-
-                  </tbody>
-                </table>
+              </div>
             </div>
+            <div class="box-body">
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <div class="box-body">
+                      <div class="row">
+                      <?php
+                            $conn = mysqli_connect('localhost','root','','sportsoversight');
+                            
+                            $sql = "SELECT * FROM `match`";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result)) {
+                            //   # code...
+                              $account_ID = $row['comentator'];
+                              $sql1 = "SELECT * FROM `account` WHERE `account_ID` = '$account_ID'";
+                              $result1 = mysqli_query($conn, $sql1);
+                              $row1 = mysqli_fetch_array($result1);
+                              $account_Uname = $row1['userName'];
+                                
+                             
+                                $club_1 = $row['club1ID'];
+                                $club_2 = $row['club2ID'];
+                                $club_1_name = "SELECT `club_Name` FROM `club` WHERE `club_ID` = '$club_1'";
+                                $club_2_name = "SELECT `club_Name` FROM `club` WHERE `club_ID` = '$club_2'";
+                                $club_1_name_run = mysqli_query($conn, $club_1_name);
+                                $club_2_name_run = mysqli_query($conn, $club_2_name);
+                                $row2 = mysqli_fetch_array($club_1_name_run);
+                                $row3 = mysqli_fetch_array($club_2_name_run);
+                                $cName_1 = $row2['club_Name'];
+                                $cName_2 = $row3['club_Name'];
+                                $game_name = $cName_1.' Vs '.$cName_2;?>
+                                <div class="col-md-3">
+                              <form method= "get" action = "matchStream.php">
+                                <blockquote>
+                                  <p>
+                                  <span class="glyphicon glyphicon-ok-sign text-green " aria-hidden="true"></span> 
+                                  <input type = hidden name ='matchID' value='<?php echo $row['match_id'];?>'>
+
+                                    <?php echo $game_name."<br><small><b>Place:-</b>".$row['place']."</small><small><b>Time:-".$row['matchTime']."</small>";?>
+                                    <input type = "submit" value = "Watch Live Stream" name = "start" class = "btn bg-olive btn-flat margin">
+                                  </p>
+                                </blockquote>
+                              </form>
+                              </div>
+                                <?php
+                            }
+                            
+                            ?>
+                            <?php 
+                              if (isset($_POST['start'])) {
+                                # code...
+                                include 'liveStream_txt.php';
+                                
+
+                              }
+                            ?>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-body -->
+
+            <!-- /.box-footer-->
+          </div>
+           <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Latest Match News</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="col-xs-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td><center> <h4>Buna Won the Game Aginst Dedebit 3-0</h4> </center></td>
+                      </tr>
+                      <tr>
+                        <td><dd>The first Goal was scored by <i> <big><b class = "label label-success">Abebe Alemu</b></big> </i></dd></td>
+                      </tr>
+                      <tr>
+                        <td><dd>The Second Goal was scored by <i> <big><b class = "label label-success">Abebe Alemu</b></big> </i></dd></td>
+                      </tr>
+                      <tr>
+                        <td><dd>The Last Goal was scored by <i> <big><b class = "label label-success">Abebe Alemu</b></big> </i></dd></td>
+                      </tr>
+                      <tr>
+                        <td><dd><big><b class = "label label-danger">Abebe Alemu</b></big> And <big><b class = "label label-danger">Abebe Alemu</b></big> was injured during the game.</dd></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+       
       </div>
+        <!-- /.box -->
     </section>
+    <!-- /.content -->
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
