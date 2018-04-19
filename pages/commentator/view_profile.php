@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+if ($_SESSION['userName'] == "") {
+
+  header('Location: ../../index');
+
+}
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,16 +102,17 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Abebe Chala</p>
+          <p><?php echo "Hello"." ".$_SESSION['userName']; ?></p>
           <p><i>Commentater</i> </p>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header"><h3>Menu</h3></li>
-         <li ><a href="liveStream.php"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
-         <li class = "active"><a href="index.php"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
-         <li><a href="../../login.html"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
+        <li class = "active"><a href="index"><i class="glyphicon glyphicon-home text-blue"></i> <span>Home </span></a></li>
+         <li ><a href="liveStream"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
+         <li class = "active"><a href="view_profile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
+         <li><a href="logout.php"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -107,7 +124,7 @@
     <section class="content-header">
       <h1>
         User Profile
-        <small>Coach </small>
+        <small>Commentator </small>
       </h1>
     </section>
 
@@ -256,7 +273,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     
-    <strong>Copyright &copy; 2017-2018 EECMY</a>.</strong> All rights
+    <strong>Copyright &copy; 2017-2018 Sports Oversight</a>.</strong> All rights
     reserved.
   </footer>
   <script>

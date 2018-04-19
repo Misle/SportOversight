@@ -16,7 +16,7 @@ if ($_SESSION['userName'] == "") {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sports Oversights | Profile Page</title>
+  <title>Sports Oversights | Start A Match Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap 3.3.6 -->
@@ -106,10 +106,10 @@ if ($_SESSION['userName'] == "") {
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header"><h3>Menu</h3></li>
-         <li class = "active"><a href="home.php"><i class="glyphicon glyphicon-home text-blue"></i> <span>Home </span></a></li>
-         <li ><a href="liveStream.php"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
-         <li ><a href="index.php"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
-         <li><a href="../../login.html"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
+         <li class = "active"><a href="index"><i class="glyphicon glyphicon-home text-blue"></i> <span>Home </span></a></li>
+         <li ><a href="liveStream"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
+         <li ><a href="view_profile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
+         <li><a href="logout.php"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -341,7 +341,7 @@ if ($_SESSION['userName'] == "") {
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     
-    <strong>Copyright &copy; 2017-2018 EECMY</a>.</strong> All rights
+    <strong>Copyright &copy; 2017-2018 Sports Oversight</a>.</strong> All rights
     reserved.
   </footer>
   <script>

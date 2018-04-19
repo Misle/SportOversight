@@ -34,7 +34,7 @@ if ($uname == NULL) {
 
 if ($result[0]>0) {
   $_SESSION['accountID'] = $result[0];
-  echo $_SESSION['accountID'];
+
 
   $role = $result[3];
   if ($role === "club_owner") {

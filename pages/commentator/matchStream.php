@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+if ($_SESSION['userName'] == "") {
+
+  header('Location: ../../index');
+
+}
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,9 +108,10 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header"><h3>Menu</h3></li>
-         <li class = "active"><a href="liveStream.php"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
-         <li ><a href="index.php"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
-         <li><a href="../../login.html"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
+        <li class = "active"><a href="index"><i class="glyphicon glyphicon-home text-blue"></i> <span>Home </span></a></li>
+         <li><a href="liveStream"><i class="glyphicon glyphicon-facetime-video text-green"></i> <span>Stream Live </span></a></li>
+         <li ><a href="view_profile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
+         <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -106,8 +122,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User Profile
-        <small>Coach </small>
+        Live Commentary 
+        <small>Commentator </small>
       </h1>
     </section>
 
@@ -178,7 +194,7 @@
     margin-left: 0px;
 ">
     
-    <strong>Copyright &copy; 2017-2018 EECMY</a>.</strong> All rights
+    <strong>Copyright &copy; 2017-2018 Sports Oversight</a>.</strong> All rights
     reserved.
   </footer>
   <script>

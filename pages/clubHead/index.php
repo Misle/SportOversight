@@ -119,8 +119,8 @@ if ($_SESSION['userName'] == "") {
             </span>
           </a>
         </li>
-        <li ><a href="assign_coach"><i class="glyphicon glyphicon-user text-blue"></i> <span>Assign Coach</span></a></li>
-        <li ><a href="assign_scouter"><i class="glyphicon glyphicon-user text-blue"></i> <span>Assign Scouter</span></a></li>
+        <li ><a href="assign_coach"><i class="glyphicon glyphicon-user text-blue"></i> <span>Request Coach</span></a></li>
+        <li ><a href="assign_scouter"><i class="glyphicon glyphicon-user text-blue"></i> <span>Request Scouter</span></a></li>
         <li ><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
         <li ><a href="Register-Fan"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Register-Fan</span></a></li>
         <li><a name="logout" href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>

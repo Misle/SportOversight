@@ -14,7 +14,7 @@
 			# code...
 			echo "<div class='direct-chat-msg' >
 	                        <div class='direct-chat-info clearfix'>
-	                          <span class='direct-chat-name pull-left text-blue'><i><h4>04 Min</h4></i></span>
+	                          <span class='direct-chat-name pull-left text-blue'><i><h4></h4></i></span>
 	                          
 	                        </div>
 	                        <!-- /.direct-chat-info -->

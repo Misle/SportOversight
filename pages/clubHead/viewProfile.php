@@ -13,10 +13,97 @@ if ($_SESSION['userName'] == "") {
 ?>
 
 
+            <?php
+  if (isset($_POST["submitttt"])) {
+    # code...
+    include "updateProfile_back_end.php";
+
+  updateProfile();
+  }
+?>
+
+
 
 
 <!DOCTYPE html>
 <html>
+<style>
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #005a4d; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar2 {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: red; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar2.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+</style>
+
+
+
+
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,8 +207,8 @@ if ($_SESSION['userName'] == "") {
             </span>
           </a>
         </li>
-        <li ><a href="assign_coach"><i class="glyphicon glyphicon-user text-blue"></i> <span>Assign Coach</span></a></li>
-        <li ><a href="assign_scouter"><i class="glyphicon glyphicon-user text-blue"></i> <span>Assign Scouter</span></a></li>
+        <li ><a href="assign_coach"><i class="glyphicon glyphicon-user text-blue"></i> <span>Request Coach</span></a></li>
+        <li ><a href="assign_scouter"><i class="glyphicon glyphicon-user text-blue"></i> <span>Request Scouter</span></a></li>
         <li class = "active"><a href="viewProfile"><i class="glyphicon glyphicon-user text-yellow"></i> <span>View Profile</span></a></li>
         <li ><a href="Register-Fan"><i class="glyphicon glyphicon-user text-yellow"></i> <span>Register-Fan</span></a></li>
         <li><a href="logout"><i class="glyphicon glyphicon-log-out text-red"></i> <span>LogOut</span></a></li>
@@ -129,6 +216,26 @@ if ($_SESSION['userName'] == "") {
     </section>
     <!-- /.sidebar -->
   </aside>
+  
+
+    <?php
+
+$conn = mysqli_connect('localhost','root','','sportsoversight');
+$profileSQl ="SELECT * FROM club_head WHERE (account_ID='".$_SESSION['accountID']."')";
+$qury =  mysqli_query($conn,$profileSQl);
+$result = mysqli_fetch_array($qury);
+$admin_ID = $result[0];
+
+$sql_username_password = "SELECT * FROM account WHERE (account_ID='".$_SESSION['accountID']."')";
+$sql_run_query = mysqli_query($conn,$sql_username_password);
+$result2 = mysqli_fetch_array($sql_run_query);
+
+
+
+$_SESSION['admin_ID'] = $admin_ID;
+
+  ?>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -136,7 +243,7 @@ if ($_SESSION['userName'] == "") {
     <section class="content-header">
       <h1>
         User Profile
-        <small>Coach </small>
+        <small>Club Head </small>
       </h1>
     </section>
 
@@ -151,9 +258,9 @@ if ($_SESSION['userName'] == "") {
             <div class="box-body box-profile"><br><br><br>
               <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
               <br>
-              <h3 class="profile-username text-center">Abebe Alemu</h3>
+              <h3 class="profile-username text-center"><?php echo $result[1]." ". $result[2] ?></h3>
 
-              <p class="text-muted text-center">Ethiopian Buna Club Head</p>
+             
               <br><br>
             </div>
             <!-- /.box-body -->
@@ -173,36 +280,27 @@ if ($_SESSION['userName'] == "") {
                   <div class="col-md-6">
                     <ul class="list-group list-group-unbordered">
                       <li class="list-group-item">
-                        <b>Full Name</b> <a class="pull-right">Abebe Alemu</a>
+                        <b>Full Name</b> <a class="pull-right"><?php echo $result[1]." ". $result[2] ?></a>
                       </li>
                       <li class="list-group-item">
-                        <b>Nationality</b> <a class="pull-right">Ethiopian</a>
+                        <b>Nationality</b> <a class="pull-right"><?php echo $result[4] ?></a>
                       </li>
-                      <li class="list-group-item">
-                        <b>Date Of Birth</b> <a class="pull-right">15/02/1975</a>
-                      </li>
+                     
                       <li class="list-group-item">
                         <b>City</b> <a class="pull-right">Addis Ababa</a>
                       </li>
                       <li class="list-group-item">
                         <b>Woreda</b> <a class="pull-right">03</a>
                       </li>
-                      <li class="list-group-item">
-                        <b>Phone No</b> <a class="pull-right">+251-26-74-84-69</a>
-                      </li>
-
+                     
                     </ul>
                   </div>
                   <div class="col-md-6">
                     <ul class="list-group list-group-unbordered">
+                     
+                     
                       <li class="list-group-item">
-                        <b>Age</b> <a class="pull-right">32</a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Gender</b> <a class="pull-right">Male</a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Email</b> <a class="pull-right">abebe@gmail.com</a>
+                        <b>Email</b> <a class="pull-right"><?php echo $result[3]?></a>
                       </li>
                       <li class="list-group-item">
                         <b>Club</b> <a class="pull-right">Ethiopia Buna</a>
@@ -214,61 +312,41 @@ if ($_SESSION['userName'] == "") {
               </div>
 
               <div class="tab-pane" id="settings">
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post">
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+                    <label for="inputName" class="col-sm-2 control-label">User Name</label>
 
                     <div class="col-sm-7">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+                      <input type="text" name="username"  value = '<?php echo $result2[1]; ?>' class="form-control" id="inputName" placeholder="User Name">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
                     <div class="col-sm-7">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                      <input type="email" name="email" value = '<?php echo $result[3]; ?>'  class="form-control" id="inputEmail" placeholder="Email">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Password</label>
+                    <label for="inputName" class="col-sm-2 control-label">New Password</label>
 
                     <div class="col-sm-7">
-                      <input type="password" class="form-control" id="inputName" placeholder="Password">
+                      <input type="password" class="form-control" name="password" id="inputName" placeholder="Password" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Confirm Password</label>
 
                     <div class="col-sm-7">
-                      <input type="password" class="form-control" id="inputName" placeholder="Confirm Password">
+                      <input type="password" class="form-control" id="inputName" name="confirm" placeholder="Confirm Password" required>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputExperience" class="col-sm-2 control-label">Phone Number</label>
+             
 
-                    <div class="col-sm-7">
-                    <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder = "Phone Number">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputSkills" class="col-sm-2 control-label">Nationality</label>
-
-                    <div class="col-sm-7">
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                      </select>
-                    </div>
-                  </div>
 
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
+                    <button name = "submitttt" type="submit" class="btn btn-danger">Submit</button>
                     </div>
                   </div>
                 </form>

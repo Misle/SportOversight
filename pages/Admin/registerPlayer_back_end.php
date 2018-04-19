@@ -28,11 +28,11 @@ $role = "player";
    $query_insert_to_player_table =  mysqli_query($conn, $intoPlayerTable);
 
   $last_player_id = mysqli_insert_id($conn);
-$intoStatusTable = "INSERT INTO player_status VALUES(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'".$last_player_id."')";
+$intoStatusTable = "INSERT INTO player_status VALUES(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'".$last_player_id."')";
 $run_query_to_status_table = mysqli_query($conn, $intoStatusTable);
 
-   if ($intoStatusTable) {
-     echo '<div id="snackbar">User Registerd succesfully</div> <script>
+   if ($run_query_to_status_table) {
+     echo '<div id="snackbar">Player Registerd succesfully</div> <script>
      var x = document.getElementById("snackbar");
 
 
